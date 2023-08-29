@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Time Series Data Table</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <h1>Time Series Data Table</h1>
+    <table id="data-table">
+        <thead>
+            <tr>
+                <th>Minute</th>
+            </tr>
+        </thead>
+        <tbody></tbody>
+    </table>
+    <script src="https://cdn.jsdelivr.net/npm/axios/dist/axios.min.js"></script>
+    <script>
+        const dataTable = document.getElementById('data-table').getElementsByTagName('tbody')[0];
+
+        axios.get('/data')
+        .then(response => {
+        const data = response.data.posts; 
+        data.forEach(entry => {
+            const row = dataTable.insertRow();
+            const cellMinute = row.insertCell(0);
+            cellMinute.innerHTML = new Date(entry.minute).toLocaleString();
+
+            const nestedRow = dataTable.insertRow();
+            const cellNested = nestedRow.insertCell();
+            cellNested.colSpan = 1;
+            cellNested.className = 'nested-cell';
+
+            const nestedTable = document.createElement('table');
+            nestedTable.className = 'nested-table';
+            cellNested.appendChild(nestedTable);
+
+            entry.data.forEach(dataPoint => {
+                const nestedRow = nestedTable.insertRow();
+                const cellName = nestedRow.insertCell(0);
+                const cellOrigin = nestedRow.insertCell(1);
+                const cellDestination = nestedRow.insertCell(2);
+                const cellTimestamp = nestedRow.insertCell(3);
+                cellName.textContent = dataPoint.name;
+                cellOrigin.textContent = dataPoint.origin;
+                cellDestination.textContent = dataPoint.destination;
+                cellTimestamp.textContent = new Date(dataPoint.timestamp).toLocaleString();
+            });
+        });
+    })
+    .catch(error => {
+        console.error('Error fetching data:', error);
+    });
+    </script>
+</body>
+</html>

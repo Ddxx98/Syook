@@ -1,0 +1,13 @@
+.nested-table {
+    margin: 10px;
+    border-collapse: collapse;
+}
+
+.nested-table td {
+    padding: 5px;
+    border: 1px solid #ccc;
+}
+
+.nested-cell {
+    padding: 0;
+}

@@ -1,0 +1,19 @@
+{
+  "name": "syook",
+  "version": "1.0.0",
+  "description": "assignment for syook",
+  "main": "main.js",
+  "scripts": {
+    "start": "nodemon main.js--w"
+  },
+  "author": "Deekshith",
+  "license": "ISC",
+  "dependencies": {
+    "crypto-js": "^4.1.1",
+    "express": "^4.18.2",
+    "mongoose": "^7.4.5",
+    "nodemon": "^3.0.1",
+    "socket.io": "^4.7.2",
+    "socket.io-client": "^4.7.2"
+  }
+}

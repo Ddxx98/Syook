@@ -1,0 +1,19 @@
+[
+    {
+      "name": "John Doe",
+      "origin": "New York",
+      "destination": "Los Angeles"
+    },
+    {
+      "name": "Jane Smith",
+      "origin": "Chicago",
+      "destination": "Miami"
+    },
+    {
+      "name": "Michael Johnson",
+      "origin": "Houston",
+      "destination": "San Francisco"
+    }
+]
+
+    

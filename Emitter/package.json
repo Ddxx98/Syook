@@ -1,0 +1,16 @@
+{
+  "name": "emitter",
+  "version": "1.0.0",
+  "description": "",
+  "main": "client.js",
+  "scripts": {
+    "start": "node client.js"
+  },
+  "author": "Deekshith",
+  "license": "ISC",
+  "dependencies": {
+    "crypto-js": "^4.1.1",
+    "nodemon": "^3.0.1",
+    "socket.io-client": "^4.7.2"
+  }
+}
